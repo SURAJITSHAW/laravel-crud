@@ -9,7 +9,7 @@
                     <p><b>Name:</b> {{$product->name}}</p>
                     <p><b>Description:</b> {{$product->description}}</p>
                     <p>
-                        <img src="{{ asset('uploads/' . $product->image) }}" alt="" class="rounded" height="500px" width="500px">
+                        <img src="{{ asset('uploads/' . $product->image) }}" alt="" class="rounded" height="500px" width="100%">
                     </p>
                 </div>
             </div>

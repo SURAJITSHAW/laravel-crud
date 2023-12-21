@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('products.index', ['products'=>Product::latest()->paginate(1)]);
+        return view('products.index', ['products'=>Product::latest()->paginate(3)]);
     }
 
     public function create()
