@@ -65,6 +65,7 @@
                         </td>
                         <td>
                             <a href="product/{{$product->id}}/edit" class="btn btn-sm btn-dark ">Edit</a>
+                            <a href="product/{{$product->id}}/delete" class="btn btn-sm btn-danger  ">Delete</a>
                         </td>
                     </tr>
                 @endforeach
