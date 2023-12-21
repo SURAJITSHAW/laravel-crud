@@ -22,7 +22,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="{{route('products.index')}}">Products</a>
+                        <a class="nav-link active text-white" aria-current="page"
+                            href="{{ route('products.index') }}">Products</a>
                     </li>
                 </ul>
             </div>
@@ -32,9 +33,12 @@
 
     <div class="container">
         <div class="text-end">
-            <a class="btn btn-dark mt-2" href="{{route('products.create')}}">New Product</a>
+            <a class="btn btn-dark mt-2" href="{{ route('products.create') }}">New Product</a>
         </div>
-        <h1>Products</h1>
+        @foreach ($products as $product)
+            <img src="{{ asset('uploads/' . $product->image) }}" alt="Image">
+        @endforeach
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
