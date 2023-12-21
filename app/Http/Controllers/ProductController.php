@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('products.index', ['products'=>Product::all()]);
+        return view('products.index', ['products'=>Product::latest()->paginate(1)]);
     }
 
     public function create()
@@ -42,6 +42,7 @@ class ProductController extends Controller
         return back()
             ->with('success', 'Product created successfully.');
     }
+
     public function edit($id)
     {
         $record = Product::find($id);
@@ -51,6 +52,17 @@ class ProductController extends Controller
             abort(404, 'Record not found');
         }
         return view('products.edit', compact('record'));
+    }
+
+    public function show($id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            // Handle the case where the product with the given $id is not found
+            abort(404, 'product not found');
+        }
+        return view('products.show', compact('product'));
     }
 
     // public function update(Request $request, $id)

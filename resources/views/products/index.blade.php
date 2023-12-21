@@ -21,7 +21,9 @@
                 @foreach ($products as $product)
                     <tr>
                         <td>{{ $loop->index + 1 }}</td>
-                        <td>{{ $product->name }}</td>
+                        <td>
+                            <a style="text-decoration: none" class="text-dark" href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
+                        </td>
                         <td>
                             <img src="{{ asset('uploads/' . $product->image) }}" alt="" width="60px" height="60px"
                                 class="rounded-circle">
@@ -34,6 +36,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $products->links() }}
 
 
     </div>
